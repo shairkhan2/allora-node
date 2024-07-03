@@ -1,5 +1,5 @@
 sudo apt update && sudo apt upgrade -y && \
-sudo apt install -y ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make jq build-essential pkg-config lsb-release libssl-dev libreadline-dev libffi-dev gcc unzip lz4 && \
+sudo apt install -y ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make jq build-essential pkg-config lsb-release libssl-dev libreadline-dev libffi-dev gcc screen unzip lz4 && \
 sudo apt install -y python3 python3-pip && \
 python3 --version && \
 pip3 --version && \
@@ -27,12 +27,4 @@ go version && \
 git clone https://github.com/allora-network/allora-chain.git && \
 cd allora-chain && make all && \
 allorad version && \
-allorad keys add testkey && \
-sleep 180 && \
-cd $HOME && git clone https://github.com/allora-network/basic-coin-prediction-node && \
-cd basic-coin-prediction-node && \
-mkdir worker-data head-data && \
-sudo chmod -R 777 worker-data head-data && \
-sudo docker run -it --entrypoint=bash -v $(pwd)/head-data:/data alloranetwork/allora-inference-base:latest -c "mkdir -p /data/keys && (cd /data/keys && allora-keys)" && \
-sudo docker run -it --entrypoint=bash -v $(pwd)/worker-data:/data alloranetwork/allora-inference-base:latest -c "mkdir -p /data/keys && (cd /data/keys && allora-keys)" && \
-cat head-data/keys/identity
+allorad keys add testkey
