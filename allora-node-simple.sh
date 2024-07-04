@@ -1,4 +1,6 @@
-sudo apt update && sudo apt upgrade -y && \
+sudo apt update && \
+sudo apt install -y dos2unix && \
+sudo apt upgrade -y && \
 sudo apt install -y ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev curl git wget make jq build-essential pkg-config lsb-release libssl-dev libreadline-dev libffi-dev gcc screen unzip lz4 && \
 sudo apt install -y python3 python3-pip && \
 python3 --version && \
@@ -28,3 +30,4 @@ git clone https://github.com/allora-network/allora-chain.git && \
 cd allora-chain && make all && \
 allorad version && \
 allorad keys add testkey
+
